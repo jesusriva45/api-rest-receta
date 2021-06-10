@@ -1,0 +1,40 @@
+package com.cibertec.receta.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cibertec.receta.dao.IFavoritosDAO;
+import com.cibertec.receta.entity.Favoritos;
+import com.cibertec.receta.entity.Receta;
+
+@Service
+public class IFavoritoServiceImpl implements IFavoritoService {
+	
+	@Autowired
+	private IFavoritosDAO favoritos;
+
+
+	@Override
+	public Favoritos insertaFavorito(Favoritos obj) {
+		// TODO Auto-generated method stub
+		return favoritos.save(obj);
+	}
+
+	@Override
+	public List<Favoritos> listarFavorito() {
+		// TODO Auto-generated method stub
+		return favoritos.findAll();
+	}
+
+	@Override
+	public Optional<Favoritos> buscarPorId(int id_favorito) {
+		// TODO Auto-generated method stub
+		return favoritos.findById(id_favorito);
+	}
+
+	
+
+}
