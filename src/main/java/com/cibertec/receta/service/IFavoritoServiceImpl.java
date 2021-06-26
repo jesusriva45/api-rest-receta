@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.cibertec.receta.dao.IFavoritosDAO;
 import com.cibertec.receta.entity.Favoritos;
-import com.cibertec.receta.entity.Receta;
 
 @Service
 public class IFavoritoServiceImpl implements IFavoritoService {
@@ -35,6 +34,14 @@ public class IFavoritoServiceImpl implements IFavoritoService {
 		return favoritos.findById(id_favorito);
 	}
 
-	
+	@Override
+	public List<Favoritos> listarFavoritosXUsuario(int id) {
+		return favoritos.listarFavoritosXUsuario(id);
+	}
+
+	@Override
+	public void eliminaFavoritos(Integer id_favoritos) {
+		favoritos.deleteById(id_favoritos);
+	}
 
 }
